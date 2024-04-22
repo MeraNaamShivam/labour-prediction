@@ -1,0 +1,42 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+a:visited { 
+ text-decoration: none; 
+ color: whitesmoke; 
+}
+a:link{
+	color: whitesmoke;
+}
+a:hover{
+	color: rosybrown;
+}
+#bgcolor{
+	background-image: url(D0-ZLU4X4AE8J9A.jpg);
+}
+.header{
+	width: 100%;
+	height: 20%;
+	background-color: grey;
+}
+.logo{
+	background-image: url(D0-ZLU4X4AE8J9A.jpg);
+	width: 10%;
+	height: 100%;
+	float: left;
+}
+.menu{
+	float: right;
+	height: 100%;
+}
+ul{
+	list-style: none;
+	text-align: left;
+}
+li{
+	display: inline-block;
+
+	padding: 44 60px;
+	font-size: 24px;
+}

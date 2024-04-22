@@ -1,0 +1,1073 @@
+<html>
+<head>
+	<title>Labour Calculation Website</title>
+	<link rel="stylesheet" type="text/CSS" href="CSStry.css">
+	<link rel="shortcut icon" type="image" href="D0-ZLU4X4AE8J9A.jpg">
+	<style type="text/css">
+		input[type="submit"] {
+    	  width: 10%;
+	      padding: 10px;
+	      background-color: darkgrey;
+	      color: #ffffff;
+	      border: none;
+	      border-radius: 5px;
+	      cursor: pointer;
+	    }
+	    .error {
+      		color: red;
+      		margin-bottom: 10px;
+    	}
+    
+    	.success {
+     		 color: green;
+      		 margin-bottom: 10px;
+    	}
+	</style>
+</head>
+<body>
+	<!--top menu or Header-->
+	<div class="header">
+		<div class="menu" align="center"><ul>
+			<li><a href="#labourcal" style="text-decoration: none;"><b>Labour<br> Calculation</b></a></li>
+			<li><a href="#ne" style="text-decoration: none;"><b>Cost<br> Calculation</b></a></li>
+			<li><a href="#login" style="text-decoration: none;"><b>Login</b></a></li>
+			<li><a href="#news" style="text-decoration: none;"><b>News and<br> Technologies</b></a></li>
+			<li><a href="#media" style="text-decoration: none;"><b>Media</b></a></li>
+			<li><a href="#contactus" style="text-decoration: none;"><b>Contact Us</b></a></li>
+		</ul>
+		</div>
+	</div>
+	<div id="bgcolor" style="color:white" id="labourcal">
+		<br>
+		<br>
+		<br>
+		<h1>Labour Calculation (Based on IS:7272 [reaffirmed :2010])</h1>
+		<br>
+  		<br>
+	    <b><label for="first-dropdown" style="size: 30;">Select Activity :</label></b>
+	    <select id="first-dropdown" onchange="updateSecondDropdown()">
+	    <option value="option0">Select Activity</option>
+    	<option value="option1">Excavation and Earth Works</option>
+    	<option value="option2">Concrete work</option>
+    	<option value="option3">Mortars work</option>
+    	<option value="option4">Brick Work(Straight Walls)</option>
+    	<option value="option5">Formwork</option>
+    	<option value="option6">Reinforcement</option>
+    	<option value="option7">Plastering and pointing</option>
+    	<option value="option8">Paving and floor Finish</option>
+    	<option value="option9">Damp-proof Course</option>
+    	<option value="option10">Joinery</option>
+    	<option value="option11">Glassing</option>
+    	<option value="option12">Painting and Polishing</option>
+    	<option value="option13">White Washing and Colour Washing (for Wall and Flat Ceilings' )</option>
+    	<option value="option14">Terraced Roofing</option>
+  		</select>
+		<br><br>
+
+	    <b><label for="second-dropdown">Select Subactivity :</label></b>
+  		<select id="second-dropdown">
+    <!-- Options will be dynamically populated based on the selection in the first dropdown -->
+  		</select>
+  		<br>
+
+  		<script>
+  		function updateSecondDropdown() {
+    		var firstDropdown = document.getElementById("first-dropdown");
+    		var secondDropdown = document.getElementById("second-dropdown");
+    		var selectedValue = firstDropdown.value;
+
+    		// Clear existing options
+    		secondDropdown.innerHTML = "";
+
+    		// Add new options based on the selection in the first dropdown
+    		if (selectedValue === "option1") {
+    			var option67 = document.createElement("option");
+      			option67.text = "Select Subactivity";
+      			secondDropdown.add(option67);
+
+      			var option1 = document.createElement("option");
+      			option1.text = "Excavation over areas (Hard/Dense soil), depth up to 1.5m";
+      			secondDropdown.add(option1);
+      
+      			var option2 = document.createElement("option");
+      			option2.text = "Excavation in trenches (Soft/loose soil), depth up to 1.5m";
+      			secondDropdown.add(option2);
+
+      			var option3 = document.createElement("option");
+      			option3.text = "Excavation over areas (Hard/Dense soil) for an additional depth of 1.5m to 3m";
+      			secondDropdown.add(option3);
+
+      			var option4 = document.createElement("option");
+      			option4.text = "Excavation in trenches (Soft/loose soil) for an additional depth of 1.5m to 3m";
+      			secondDropdown.add(option4);
+
+      			var option5 = document.createElement("option");
+      			option5.text = "Returning, Filling and Ramming of Excavated earth.";
+      			secondDropdown.add(option5);
+    		} else if (selectedValue === "option2") {
+    			var option66 = document.createElement("option");
+      			option66.text = "Select Subactivity";
+      			secondDropdown.add(option66);
+
+      			var option6 = document.createElement("option");
+      			option6.text = "Mixing by hand at banker, Cement Concrete (With 40mm graded coarse aggregate)";
+      			secondDropdown.add(option6);
+      
+      			var option7 = document.createElement("option");
+      			option7.text = "Mixing by hand at banker, Lime Concrete (With 40mm graded brick ballast)";
+      			secondDropdown.add(option7);
+
+      			var option8 = document.createElement("option");
+      			option8.text = "Mixing by machine at banker (Cement Concrete)";
+      			secondDropdown.add(option8);
+
+      			var option9 = document.createElement("option");
+      			option9.text = "Unreinforced Concrete in foundations including mixing, pouring, consolidating and curing: ";
+      			secondDropdown.add(option9);
+
+      			var option10 = document.createElement("option");
+      			option10.text = "Unreinforced Concrete Under floor including mixing, pouring, consolidating and curing: ";
+      			secondDropdown.add(option10);
+
+      			var option11 = document.createElement("option");
+      			option11.text = "Reinforced cement concrete in situ in foundations, footings, bases for columns, etc excluding form work and reinforcement ";
+      			secondDropdown.add(option11);
+
+      			var option12 = document.createElement("option");
+      			option12.text = "Reinforced cement concrete in situ in suspended floors/roofs excluding form work and reinforcement";
+      			secondDropdown.add(option12);
+
+      			var option13 = document.createElement("option");
+      			option13.text = "Reinforced cement concrete in situ in Chajjas up to 15cm in thickness excluding form work and reinforcement";
+      			secondDropdown.add(option13);
+
+      			var option14 = document.createElement("option");
+      			option14.text = "Reinforced cement concrete in situ beams excluding from work and reinforcement";
+      			secondDropdown.add(option14);
+
+      			var option15 = document.createElement("option");
+      			option15.text = "Reinforced cement concrete in situ in columns, pillars in ground floor excluding form work and reinforcement";
+      			secondDropdown.add(option15);
+
+      			var option16 = document.createElement("option");
+      			option16.text = "Reinforced cement concrete in situ in stairs excluding form work and reinforcement";
+      			secondDropdown.add(option16);
+    		} else if (selectedValue === "option3") {
+    			var option65 = document.createElement("option");
+      			option65.text = "Select Subactivity";
+      			secondDropdown.add(option65);
+
+      			var option17 = document.createElement("option");
+      			option17.text = "Mixing by hand, cement mortar of any mix/proportions";
+      			secondDropdown.add(option17);
+      
+      			var option18 = document.createElement("option");
+      			option18.text = "Mixing by hand, cement lime mortar (Sand of any proportions)";
+      			secondDropdown.add(option18);
+    		}else if (selectedValue === "option4") {
+    			var option64 = document.createElement("option");
+      			option64.text = "Select Subactivity";
+      			secondDropdown.add(option64);
+
+      			var option19 = document.createElement("option");
+      			option19.text = "Brick work in walls exceeding one brick thick, in cement/lime mortar";
+      			secondDropdown.add(option19);
+      
+      			var option20 = document.createElement("option");
+      			option20.text = "Brick work in walls, one brick thick, in cement/lime mortar";
+      			secondDropdown.add(option20);
+
+      			var option21 = document.createElement("option");
+      			option21.text = "Half Brick walls (with or without hoop iron reinforcement) in cement mortar ";
+      			secondDropdown.add(option21);
+
+      			var option22 = document.createElement("option");
+      			option22.text = "Tile work in super-structure in Cement Mortar";
+      			secondDropdown.add(option22);
+    		}else if (selectedValue === "option5") {
+    			var option63 = document.createElement("option");
+      			option63.text = "Select Subactivity";
+      			secondDropdown.add(option63);
+
+      			var option23 = document.createElement("option");
+      			option23.text = "Rectangular column and walls";
+      			secondDropdown.add(option23);
+      
+      			var option24 = document.createElement("option");
+      			option24.text = "Suspended Floors/Roofs ";
+      			secondDropdown.add(option24);
+
+      			var option25 = document.createElement("option");
+      			option25.text = "Slides and soffits of beams";
+      			secondDropdown.add(option25);
+    		}else if (selectedValue === "option6") {
+    			var option62 = document.createElement("option");
+      			option62.text = "Select Subactivity";
+      			secondDropdown.add(option62);
+
+      			var option26 = document.createElement("option");
+      			option26.text = "Bar reinforcement including cutting to length, hooked ends,cranking or bending, hoisting and placing in any position, binding with binding wire and holding firmly so as not to be disturbed while placing and ramming of concrete";
+      			secondDropdown.add(option26);
+
+    		}else if (selectedValue === "option7") {
+    			var option61 = document.createElement("option");
+      			option61.text = "Select Subactivity";
+      			secondDropdown.add(option61);
+
+      			var option27 = document.createElement("option");
+      			option27.text = "15mm thick cement plaster to ceiling including mixing of mortar";
+      			secondDropdown.add(option27);
+      
+      			var option28 = document.createElement("option");
+      			option28.text = "15mm thick cement plaster on brick walls (exterior) including mixing of mortar";
+      			secondDropdown.add(option28);
+
+      			var option29 = document.createElement("option");
+      			option29.text = " 15mm thick cement plaster on brick walls (exterior). Under layer 10mm cement sand plaster and top layer 5mm, cement : Marble powder : stone grit, including mixing";
+      			secondDropdown.add(option29);
+
+      			var option30 = document.createElement("option");
+      			option30.text = "15mm thick cement plaster on brick walls(interior) including mixing mortar";
+      			secondDropdown.add(option30);
+
+      			var option31 = document.createElement("option");
+      			option31.text = "Struck pointing to brick work in cement mortar including mixing morta";
+      			secondDropdown.add(option31);
+
+      			var option32 = document.createElement("option");
+      			option32.text = "Tuck pointing to random ruble masonry in cement mortar including mixing mortar ";
+      			secondDropdown.add(option32);
+    		}else if (selectedValue === "option8") {
+    			var option60 = document.createElement("option");
+      			option60.text = "Select Subactivity";
+      			secondDropdown.add(option60);
+
+      			var option33 = document.createElement("option");
+      			option33.text = "Laying of PCC 40mm thick in alternate bays  with side from templates and finished smooth";
+      			secondDropdown.add(option33);
+      
+      			var option34 = document.createElement("option");
+      			option34.text = "Laying of PCC 25mm thick in alternate bays  with side from templates and finished smooth";
+      			secondDropdown.add(option34);
+
+      			var option35 = document.createElement("option");
+      			option35.text = "Laying of 40mm thick in situ terrazo flooring, under layer 30mm thick cement concrete and top layer of 10mm thick marble chips laid in cement with dividing strips of glass, metal or asbestos to form bays including cutting, grinding and polishing ";
+      			secondDropdown.add(option35);
+
+      			var option36 = document.createElement("option");
+      			option36.text = "Laying of 20mm thick in situ terrazo skirting/dado underlayer 13mm thick cement plaster and top layer 7mm thick marble chips laid in cement including rounding of junctions with floor cutting, grinding and poliishing :";
+      			secondDropdown.add(option36);
+
+      			var option37 = document.createElement("option");
+      			option37.text = "Precast terrazo tile flooring 20mm thick laid over 10mm thick cement mortars :";
+      			secondDropdown.add(option37);
+    		}else if (selectedValue === "option9") {
+    			var option59 = document.createElement("option");
+      			option59.text = "Select Subactivity";
+      			secondDropdown.add(option59);
+
+      			var option38 = document.createElement("option");
+      			option38.text = "Laying damp-proof course 40mm thick cement concrete including formwork and fair finishing to edges and mixing";
+      			secondDropdown.add(option38);
+      
+      			var option39 = document.createElement("option");
+      			option39.text = "Laying damp-proof course 20mm thick cement mortar integral water proofing compound including mixing";
+      			secondDropdown.add(option39);
+    		}else if (selectedValue === "option10") {
+    			var option58 = document.createElement("option");
+      			option58.text = "Select Subactivity";
+      			secondDropdown.add(option58);
+
+      			var option40 = document.createElement("option");
+      			option40.text = "Door Windows CHOKHATS coniferous and teak wood wrought and rebated";
+      			secondDropdown.add(option40);
+      
+      			var option41 = document.createElement("option");
+      			option41.text = "Panelled/glazed joinery in coniferous teak wood 30 to 40 mm thick framed with panels or space left out for glass or fixing of mesh wire(with tenoned joints) ";
+      			secondDropdown.add(option41);
+
+      			var option42 = document.createElement("option");
+      			option42.text = "Fixing of readymade shutters to frames including fixing of fittings";
+      			secondDropdown.add(option42);
+    		}else if (selectedValue === "option11") {
+    			var option57 = document.createElement("option");
+      			option57.text = "Select Subactivity";
+      			secondDropdown.add(option57);
+
+      			var option43 = document.createElement("option");
+      			option43.text = "Fixing Glass panes on steel or wood work bedded with putty";
+      			secondDropdown.add(option43);
+      
+      			
+    		}else if (selectedValue === "option12") {
+    			var option56 = document.createElement("option");
+      			option56.text = "Select Subactivity";
+      			secondDropdown.add(option56);
+
+      			var option44 = document.createElement("option");
+      			option44.text = "French polishing complete including a coat of wood filler on new work";
+      			secondDropdown.add(option44);
+
+    		}else if (selectedValue === "option13") {
+    			var option55 = document.createElement("option");
+      			option55.text = "Select Subactivity";
+      			secondDropdown.add(option55);
+
+      			var option45 = document.createElement("option");
+      			option45.text = "White washing with lime 3 coats on new surface";
+      			secondDropdown.add(option45);
+      
+    			var option46 = document.createElement("option");
+      			option46.text = "Two coats of colour wash over an undercoat of white wash on new work";
+      			secondDropdown.add(option46);
+
+      			var option47 = document.createElement("option");
+      			option47.text = "Distempering with dry distemper 3 coats on new surface including a priming coat of whiting";
+      			secondDropdown.add(option47);
+
+      			var option48 = document.createElement("option");
+      			option48.text = "Cement based paint 2 or more coats on new work (for each coat)";
+      			secondDropdown.add(option48);
+
+      			var option49 = document.createElement("option");
+      			option49.text = "Cement wash one coat on new work";
+      			secondDropdown.add(option49);
+    		}else if (selectedValue === "option14") {
+    			var option54 = document.createElement("option");
+      			option54.text = "Select Subactivity";
+      			secondDropdown.add(option54);
+
+      			var option50 = document.createElement("option");
+      			option50.text = "10cm thick (average ) mud PHUSKA of clay mixed with BHUSKA at 8kg per cubic metres of clay on roofs laid to slope and consolidated";
+      			secondDropdown.add(option50);
+      
+      			var option51 = document.createElement("option");
+      			option51.text = "10mm thick mud plaster and GOBRI leeping with mud GOBRI mortar over mud PHUSKA";
+      			secondDropdown.add(option51);
+
+      			var option52 = document.createElement("option");
+      			option52.text = "One layer of tile brick laid over GOBRI leeping and grounted with cement mortar icluding mixing and finishing neat";
+      			secondDropdown.add(option52);
+
+      			var option53 = document.createElement("option");
+      			option53.text = "Lime concrete terracing comprising of lime, surkhi, brick ballast - 20mm and downaverage consolidated thickness 10cm, finished with gur and belgiri treatment complete:";
+      			secondDropdown.add(option53);
+    		}
+    	}
+
+    //		var selectedSecondValue = secondDropdown.value;
+    //		
+    // Open result page based on the selected options in both dropdowns
+	 //  if (selectedValue === "option2"){
+	 //       var selectedOption = secondDropdown.value;
+
+ 	 //      if (selectedOption == "Excavation over areas (Hard/Dense soil), depth up to 1.5m") {
+               
+	//        } else if (selectedOption === "Option 2.2") {
+    //    	  window.location.href = "index1.html";
+	//        }else{
+
+	//        }
+	        // Prompt the user to enter the first number
+
+
+	    //}
+	</script>
+	<b><label for="num1">Enter Number of Days :</label>
+    <input type="number" id="num1">
+    <br>
+    <label for="num2">Enter Volume of work :</label>
+    <input type="number" id="num2">
+    <br>
+    <button onclick="calculateProduct()">SUBMIT</button>
+    <p id="result" style="background-color:dimgrey;"></p></b>
+
+    <script>
+	    function calculateProduct() {
+	      var D = parseInt(document.getElementById('num1').value);
+	      var W = parseInt(document.getElementById('num2').value);
+
+	      var aaa=document.getElementById('second-dropdown').value;
+	    //  document.getElementById('result').textContent = 'The product is: ' + product + ' and work is '+aaa;
+	      if(aaa=='Excavation over areas (Hard/Dense soil), depth up to 1.5m'){
+	      	var Mate_constant = 0.06;
+        	var Mazdoor_constant = 0.62;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+	      	var product = num1 * num2;
+	       document.getElementById('result').textContent = 'Required number of mate is ' + Math.ceil(m) + ' and mazdoor is '+Math.ceil(l);
+	      }else if(aaa=='Excavation in trenches (Soft/loose soil), depth up to 1.5m'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.05;
+        	var Mazdoor_constant = 0.5;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+	     
+	       document.getElementById('result').textContent = 'Required number of mate is ' + Math.ceil(m) + ' and mazdoor is '+Math.ceil(l);
+	      }else if(aaa=='Excavation over areas (Hard/Dense soil) for an additional depth of 1.5m to 3m'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.01;
+        	var Mazdoor_constant = 0.11;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+
+	       document.getElementById('result').textContent = 'Required number of mate is ' + Math.ceil(m) + ' and mazdoor is '+Math.ceil(l);
+	      }else if(aaa=='Excavation in trenches (Soft/loose soil) for an additional depth of 1.5m to 3m'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.01;
+        	var Mazdoor_constant = 0.08;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+
+	       document.getElementById('result').textContent = 'Required number of mate is ' + Math.ceil(m) + ' and mazdoor is '+Math.ceil(l);
+	      }else if(aaa=='Returning, Filling and Ramming of Excavated earth.'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.02;
+        	var Mazdoor_constant = 0.25;
+        	var B = 0.02;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+        	var b = (W*B)/D;
+
+	       document.getElementById('result').textContent = 'Required number of mate is ' + Math.ceil(m) + ' ,bhisti is '+ Math.ceil(b) +' and mazdoor is '+Math.ceil(l);
+	      }else if(aaa=='Mixing by hand at banker, Cement Concrete (With 40mm graded coarse aggregate)'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.1;
+        	var Mazdoor_constant = 1;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+
+	       document.getElementById('result').textContent = 'Required number of bhisti is ' + Math.ceil(m) + ' and mazdoor is '+Math.ceil(l);
+	      }else if(aaa=='Mixing by hand at banker, Lime Concrete (With 40mm graded brick ballast)'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.2;
+        	var Mazdoor_constant = 1.62;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+
+	       document.getElementById('result').textContent = 'Required number of bhisti is ' + Math.ceil(m) + ' and mazdoor is '+Math.ceil(l);
+	      }else if(aaa=='Mixing by machine at banker (Cement Concrete)'){
+	      	var product = num1 * num2;
+	      	var Mazdoor = 0.50;
+ 	        var Bhisti = 0.10;
+	        var Mixer = 0.07;
+	        var Mixer_operator = 0.07;
+	        var m = (W*Mazdoor)/D;
+	        var b = (W*Bhisti)/D;
+	        var mi = (W*Mixer)/D;
+	        var mio = (W*Mixer_operator)/D;
+
+	       document.getElementById('result').textContent = 'Required number of mazdoor is ' + Math.ceil(m) + ' ,bhisti is ' + Math.ceil(b) + ' ,mixer is ' + Math.ceil(mi) + ' and Mixer Operator is '+Math.ceil(mio);
+	      }else if(aaa=='Unreinforced Concrete in foundations including mixing, pouring, consolidating and curing:'){
+	      	var product = num1 * num2;
+	      	var Mason = 0.10;
+            var Mazdoor = 1.63;
+            var Bhisti = 0.70;
+            var Mixer_operator = 0.07;
+            var Mixer = 0.07;
+            var Vibrator = 0.07;
+            var m = (W*Mazdoor)/D;
+            var b = (W*Bhisti)/D;
+            var ma = (W*Mason)/D;
+            var mi = (W*Mixer)/D;
+            var mio = (W*Mixer_operator)/D;
+            var vib = (W*Vibrator)/D;
+
+	       document.getElementById('result').textContent = 'Required number of Mason is ' + Math.ceil(ma) + ' , mazdoor is '+Math.ceil(m)+', bhisti is'+Math.ceil(b)+',mixer operator is '+Math.ceil(mi)+',mixer is '+Math.ceil(mio)+'and Vibrator is '+Math.ceil(vib);
+	      }else if(aaa=='Unreinforced Concrete Under floor including mixing, pouring, consolidating and curing:'){
+	      	var product = num1 * num2;
+	      	var Mason = 0.17;
+            var Mazdoor = 1.83;
+            var Bhisti = 0.80;
+            var Mixer_operator = 0.07;
+            var Mixer = 0.07;
+            var Vibrator = 0.07;
+            var m = (W*Mazdoor)/D;
+            var b = (W*Bhisti)/D;
+            var ma = (W*Mason)/D;
+            var mi = (W*Mixer)/D;
+            var mio = (W*Mixer_operator)/D;
+            var vib = (W*Vibrator)/D;
+
+	       document.getElementById('result').textContent = 'Required number of Mason is ' + Math.ceil(ma) + ' , mazdoor is '+Math.ceil(m)+', bhisti is'+Math.ceil(b)+',mixer operator is '+Math.ceil(mi)+',mixer is '+Math.ceil(mio)+'and Vibrator is '+Math.ceil(vib);
+	      }else if(aaa=='Reinforced cement concrete in situ in foundations, footings, bases for columns, etc excluding form work and reinforcement'){
+	      	var product = num1 * num2;
+	      	var Mason = 0.17;
+            var Mazdoor = 2;
+            var Bhisti = 0.90;
+            var Mixer_operator = 0.07;
+            var Mixer = 0.07;
+            var Vibrator = 0.07;
+            var m = (W*Mazdoor)/D;
+            var b = (W*Bhisti)/D;
+            var ma = (W*Mason)/D;
+            var mi = (W*Mixer)/D;
+            var mio = (W*Mixer_operator)/D;
+            var vib = (W*Vibrator)/D;
+
+	       document.getElementById('result').textContent = 'Required number of Mason is ' + Math.ceil(ma) + ' , mazdoor is '+Math.ceil(m)+', bhisti is'+Math.ceil(b)+',mixer operator is '+Math.ceil(mi)+',mixer is '+Math.ceil(mio)+'and Vibrator is '+Math.ceil(vib);
+	      }else if(aaa=='Reinforced cement concrete in situ in suspended floors/roofs excluding form work and reinforcement'){
+	      	var product = num1 * num2;
+	      	var Mason = 0.24;
+            var Mazdoor = 2.5;
+            var Bhisti = 0.90;
+            var Mixer_operator = 0.07;
+            var Mixer = 0.07;
+            var Vibrator = 0.07;
+            var m = (W*Mazdoor)/D;
+            var b = (W*Bhisti)/D;
+            var ma = (W*Mason)/D;
+            var mi = (W*Mixer)/D;
+            var mio = (W*Mixer_operator)/D;
+            var vib = (W*Vibrator)/D;
+
+	       document.getElementById('result').textContent = 'Required number of Mason is ' + Math.ceil(ma) + ' , mazdoor is '+Math.ceil(m)+', bhisti is'+Math.ceil(b)+',mixer operator is '+Math.ceil(mi)+',mixer is '+Math.ceil(mio)+'and Vibrator is '+Math.ceil(vib);
+	      }else if(aaa=='Reinforced cement concrete in situ in Chajjas up to 15cm in thickness excluding form work and reinforcement'){
+	      	var product = num1 * num2;
+	      	var Mason = 0.30;
+            var Mazdoor = 3.5;
+            var Bhisti = 0.90;
+            var Mixer_operator = 0.1;
+            var Mixer = 0.1;
+            var Vibrator = 0.1;
+            var m = (W*Mazdoor)/D;
+            var b = (W*Bhisti)/D;
+            var ma = (W*Mason)/D;
+            var mi = (W*Mixer)/D;
+            var mio = (W*Mixer_operator)/D;
+            var vib = (W*Vibrator)/D;
+
+	       document.getElementById('result').textContent = 'Required number of Mason is ' + Math.ceil(ma) + ' , mazdoor is '+Math.ceil(m)+', bhisti is'+Math.ceil(b)+',mixer operator is '+Math.ceil(mi)+',mixer is '+Math.ceil(mio)+'and Vibrator is '+Math.ceil(vib);
+	      }else if(aaa=='Reinforced cement concrete in situ beams excluding from work and reinforcement'){
+	      	var product = num1 * num2;
+	      	var Mason = 0.20;
+            var Mazdoor = 3;
+            var Bhisti = 0.90;
+            var Mixer_operator = 0.07;
+            var Mixer = 0.07;
+            var Vibrator = 0.07;
+            var m = (W*Mazdoor)/D;
+            var b = (W*Bhisti)/D;
+            var ma = (W*Mason)/D;
+            var mi = (W*Mixer)/D;
+            var mio = (W*Mixer_operator)/D;
+            var vib = (W*Vibrator)/D;
+
+	       document.getElementById('result').textContent = 'Required number of Mason is ' + Math.ceil(ma) + ' , mazdoor is '+Math.ceil(m)+', bhisti is'+Math.ceil(b)+',mixer operator is '+Math.ceil(mi)+',mixer is '+Math.ceil(mio)+'and Vibrator is '+Math.ceil(vib);
+	      }else if(aaa=='Reinforced cement concrete in situ in columns, pillars in ground floor excluding form work and reinforcement'){
+	      	var product = num1 * num2;
+	      	var Mason = 0.23;
+            var Mazdoor = 3.5;
+            var Bhisti = 0.90;
+            var Mixer_operator = 0.1;
+            var Mixer = 0.1;
+            var Vibrator = 0.1;
+            var m = (W*Mazdoor)/D;
+            var b = (W*Bhisti)/D;
+            var ma = (W*Mason)/D;
+            var mi = (W*Mixer)/D;
+            var mio = (W*Mixer_operator)/D;
+            var vib = (W*Vibrator)/D;
+
+	       document.getElementById('result').textContent = 'Required number of Mason is ' + Math.ceil(ma) + ' , mazdoor is '+Math.ceil(m)+', bhisti is'+Math.ceil(b)+',mixer operator is '+Math.ceil(mi)+',mixer is '+Math.ceil(mio)+'and Vibrator is '+Math.ceil(vib);
+	      }else if(aaa=='Reinforced cement concrete in situ in stairs excluding form work and reinforcement'){
+	      	var product = num1 * num2;
+	      	var Mason = 0.30;
+            var Mazdoor = 4.3;
+            var Bhisti = 0.90;
+            var Mixer_operator = 0.07;
+            var Mixer = 0.07;
+            var Vibrator = 0.07;
+            var m = (W*Mazdoor)/D;
+            var b = (W*Bhisti)/D;
+            var ma = (W*Mason)/D;
+            var mi = (W*Mixer)/D;
+            var mio = (W*Mixer_operator)/D;
+            var vib = (W*Vibrator)/D;
+
+	       document.getElementById('result').textContent = 'Required number of Mason is ' + Math.ceil(ma) + ' , mazdoor is '+Math.ceil(m)+', bhisti is'+Math.ceil(b)+',mixer operator is '+Math.ceil(mi)+',mixer is '+Math.ceil(mio)+'and Vibrator is '+Math.ceil(vib);
+	      }else if(aaa=='Mixing by hand, cement mortar of any mix/proportions'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.07;
+        	var Mazdoor_constant = 0.75;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+
+	       document.getElementById('result').textContent = 'Required number of bhisti is ' + Math.ceil(m) + ' and mazdoor is '+Math.ceil(l);
+	      }else if(aaa=='Mixing by hand, cement lime mortar (Sand of any proportions)'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.1;
+        	var Mazdoor_constant = 1.35;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+
+	       document.getElementById('result').textContent = 'Required number of bhisti is ' + Math.ceil(m) + ' and mazdoor is '+Math.ceil(l);
+	      }else if(aaa=='Brick work in walls exceeding one brick thick, in cement/lime mortar'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.2;
+        	var Mazdoor_constant = 1.8;
+        	var mason=0.94;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+        	var ma = (W*mason)/D;
+
+	       document.getElementById('result').textContent = 'Required number of bhisti is ' + Math.ceil(m) +' , mason is'+Math.ceil(ma)+ ' and mazdoor is '+Math.ceil(l);
+	      }else if(aaa=='Brick work in walls, one brick thick, in cement/lime mortar'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.1;
+        	var Mazdoor_constant = 0.4;
+        	var mason=0.25;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+        	var ma = (W*mason)/D;
+
+	       document.getElementById('result').textContent = 'Required number of bhisti is ' + Math.ceil(m) +' , mason is'+Math.ceil(ma)+ ' and mazdoor is '+Math.ceil(l);
+	      }else if(aaa=='Half Brick walls (with or without hoop iron reinforcement) in cement mortar'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.07;
+        	var Mazdoor_constant = 0.2;
+        	var mason=0.12;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+        	var ma = (W*mason)/D;
+
+	       document.getElementById('result').textContent = 'Required number of bhisti is ' + Math.ceil(m) +' , mason is'+Math.ceil(ma)+ ' and mazdoor is '+Math.ceil(l);
+	      }else if(aaa=='Tile work in super-structure in Cement Mortar'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.2;
+        	var Mazdoor_constant = 1.8;
+        	var mason=1.8;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+        	var ma = (W*mason)/D;
+
+	       document.getElementById('result').textContent = 'Required number of bhisti is ' + Math.ceil(m) +' , mason is'+Math.ceil(ma)+ ' and mazdoor is '+Math.ceil(l);
+	      }else if(aaa=='Rectangular column and walls'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.25;
+        	var Mazdoor_constant = 0.2;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+
+	       document.getElementById('result').textContent = 'Required number of carpenter is ' + Math.ceil(m) + ' and mazdoor is '+Math.ceil(l);
+	      }else if(aaa=='Suspended Floors/Roofs'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.23;
+        	var Mazdoor_constant = 0.2;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+
+	       document.getElementById('result').textContent = 'Required number of carpenter is ' + Math.ceil(m) + ' and mazdoor is '+Math.ceil(l);
+	      }else if(aaa=='Slides and soffits of beams'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.3;
+        	var Mazdoor_constant = 0.2;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+
+	       document.getElementById('result').textContent = 'Required number of carpenter is ' + Math.ceil(m) + ' and mazdoor is '+Math.ceil(l);
+	      }else if(aaa=='Bar reinforcement including cutting to length, hooked ends,cranking or bending, hoisting and placing in any position, binding with binding wire and holding firmly so as not to be disturbed while placing and ramming of concrete'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 1;
+        	var Mazdoor_constant = 1;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+
+	       document.getElementById('result').textContent = 'Required number of barbender is ' + Math.ceil(m) + ' and mazdoor is '+Math.ceil(l);
+	      }else if(aaa=='15mm thick cement plaster to ceiling including mixing of mortar'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.1;
+        	var Mazdoor_constant = 0.1;
+        	var mason=0.08;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+        	var ma = (W*mason)/D;
+
+	       document.getElementById('result').textContent = 'Required number of mason is ' + Math.ceil(ma) +' , bhisti is'+Math.ceil(m) + ' and mazdoor is '+Math.ceil(l);
+	      }else if(aaa=='15mm thick cement plaster on brick walls (exterior) including mixing of mortar'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.1;
+        	var Mazdoor_constant = 0.1;
+        	var mason=0.06;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+        	var ma = (W*mason)/D;
+
+	       document.getElementById('result').textContent = 'Required number of mason is ' + Math.ceil(ma) +' , bhisti is'+Math.ceil(m) + ' and mazdoor is '+Math.ceil(l);
+	      }else if(aaa=='15mm thick cement plaster on brick walls (exterior). Under layer 10mm cement sand plaster and top layer 5mm, cement : Marble powder : stone grit, including mixing'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.15;
+        	var Mazdoor_constant = 0.15;
+        	var mason=0.15;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+        	var ma = (W*mason)/D;
+
+	       document.getElementById('result').textContent = 'Required number of mason is ' + Math.ceil(ma) +' , bhisti is'+Math.ceil(m) + ' and mazdoor is '+Math.ceil(l);
+	      }else if(aaa=='15mm thick cement plaster on brick walls(interior) including mixing mortar'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.1;
+        	var Mazdoor_constant = 0.1;
+        	var mason=0.08;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+        	var ma = (W*mason)/D;
+
+	       document.getElementById('result').textContent = 'Required number of mason is ' + Math.ceil(ma) +' , bhisti is'+Math.ceil(m) + ' and mazdoor is '+Math.ceil(l);
+	      }else if(aaa=='Struck pointing to brick work in cement mortar including mixing morta'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.1;
+        	var Mazdoor_constant = 0.1;
+        	var mason=0.08;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+        	var ma = (W*mason)/D;
+
+	       document.getElementById('result').textContent = 'Required number of mason is ' + Math.ceil(ma) +' , bhisti is'+Math.ceil(m) + ' and mazdoor is '+Math.ceil(l);
+	      }else if(aaa=='Tuck pointing to random ruble masonry in cement mortar including mixing mortar'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.1;
+        	var Mazdoor_constant = 0.15;
+        	var mason=0.1;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+        	var ma = (W*mason)/D;
+
+	       document.getElementById('result').textContent = 'Required number of mason is ' + Math.ceil(ma) +' , bhisti is'+Math.ceil(m) + ' and mazdoor is '+Math.ceil(l);
+	      }else if(aaa=='Laying of PCC 40mm thick in alternate bays with side from templates and finished smooth'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.1;
+        	var Mazdoor_constant = 0.12;
+        	var mason=0.08;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+        	var ma = (W*mason)/D;
+
+	       document.getElementById('result').textContent = 'Required number of mason is ' + Math.ceil(ma) +' , bhisti is'+Math.ceil(m) + ' and mazdoor is '+Math.ceil(l);
+	      }else if(aaa=='Laying of PCC 25mm thick in alternate bays with side from templates and finished smooth'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.1;
+        	var Mazdoor_constant = 0.1;
+        	var mason=0.07;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+        	var ma = (W*mason)/D;
+
+	       document.getElementById('result').textContent = 'Required number of mason is ' + Math.ceil(ma) +' , bhisti is'+Math.ceil(m) + ' and mazdoor is '+Math.ceil(l);
+	      }else if(aaa=='Laying of 40mm thick in situ terrazo flooring, under layer 30mm thick cement concrete and top layer of 10mm thick marble chips laid in cement with dividing strips of glass, metal or asbestos to form bays including cutting, grinding and polishing'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.1;
+        	var Mazdoor_constant = 0.22;
+        	var mason=0.22;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+        	var ma = (W*mason)/D;
+        	var machine=0.4;
+        	var mazdoor2=0.5;
+        	var mach=(W*machine)/D;
+        	var maz2=(W*mazdoor2)/D;
+
+	       document.getElementById('result').textContent = 'For LAYING : Required number of mason is ' + Math.ceil(ma) +' , bhisti is'+Math.ceil(m) + ' and mazdoor is '+Math.ceil(l)+', For CUTTING,GRINDING and POLISHING : Required Number of Mazdoor is '+Math.ceil(maz2)+' and Machine is '+Math.ceil(mach);
+	      }else if(aaa=='Laying of 20mm thick in situ terrazo skirting/dado underlayer 13mm thick cement plaster and top layer 7mm thick marble chips laid in cement including rounding of junctions with floor cutting, grinding and poliishing :'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.1;
+        	var Mazdoor_constant = 0.3;
+        	var mason=0.3;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+        	var ma = (W*mason)/D;
+        //	var machine=0.4;
+        	var mazdoor2=0.7;
+        //	var mach=(W*machine)/D;
+        	var maz2=(W*mazdoor2)/D;
+
+	       document.getElementById('result').textContent = 'For LAYING : Required number of mason is ' + Math.ceil(ma) +' , bhisti is'+Math.ceil(m) + ' and mazdoor is '+Math.ceil(l)+', For CUTTING,GRINDING and POLISHING : Required Number of Mazdoor is '+Math.ceil(maz2);
+	      }else if(aaa=='Precast terrazo tile flooring 20mm thick laid over 10mm thick cement mortars :'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.1;
+        	var Mazdoor_constant = 0.2;
+        	var mason=0.12;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+        	var ma = (W*mason)/D;
+        	var machine=0.4;
+        	var mazdoor2=0.5;
+        	var mach=(W*machine)/D;
+        	var maz2=(W*mazdoor2)/D;
+
+	       document.getElementById('result').textContent = 'For LAYING : Required number of mason is ' + Math.ceil(ma) +' , bhisti is'+Math.ceil(m) + ' and mazdoor is '+Math.ceil(l)+', For CUTTING,GRINDING and POLISHING : Required Number of Mazdoor is '+Math.ceil(maz2)+' and Machine is '+Math.ceil(mach);
+	      }else if(aaa=='Laying damp-proof course 40mm thick cement concrete including formwork and fair finishing to edges and mixing'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.01;
+        	var Mazdoor_constant = 0.1;
+        	var mason=0.1;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+        	var ma = (W*mason)/D;
+
+	       document.getElementById('result').textContent = 'Required number of mason is ' + Math.ceil(ma) +' , bhisti is'+Math.ceil(m) + ' and mazdoor is '+Math.ceil(l);
+	      }else if(aaa=='Laying damp-proof course 20mm thick cement mortar integral water proofing compound including mixing'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.01;
+        	var Mazdoor_constant = 0.1;
+        	var mason=0.1;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+        	var ma = (W*mason)/D;
+
+	       document.getElementById('result').textContent = 'Required number of mason is ' + Math.ceil(ma) +' , bhisti is'+Math.ceil(m) + ' and mazdoor is '+Math.ceil(l);
+	      }else if(aaa=='Door Windows CHOKHATS coniferous and teak wood wrought and rebated'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 20;
+        	var Mazdoor_constant = 2;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+
+	       document.getElementById('result').textContent = 'Required number of carpenter is ' + Math.ceil(m) + ' and mazdoor is '+Math.ceil(l);
+	      }else if(aaa=='Panelled/glazed joinery in coniferous teak wood 30 to 40 mm thick framed with panels or space left out for glass or fixing of mesh wire(with tenoned joints)'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.9;
+        	var Mazdoor_constant = 0.1;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+
+	       document.getElementById('result').textContent = 'Required number of carpenter is ' + Math.ceil(m) + ' and mazdoor is '+Math.ceil(l);
+	      }else if(aaa=='Fixing of readymade shutters to frames including fixing of fittings'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.25;
+        	var Mazdoor_constant = 0.25;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+
+	       document.getElementById('result').textContent = 'Required number of carpenter is ' + Math.ceil(m) + ' and mazdoor is '+Math.ceil(l);
+	      }else if(aaa=='Fixing Glass panes on steel or wood work bedded with putty'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.2;
+        	var Mazdoor_constant = 0.01;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+
+	       document.getElementById('result').textContent = 'Required number of Glasier is ' + Math.ceil(m) + ' and mazdoor is '+Math.ceil(l);
+	      }else if(aaa=='French polishing complete including a coat of wood filler on new work'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.55;
+        //	var Mazdoor_constant = 0.62;
+        	var m= (W*Mate_constant)/D;
+        //	var l = (W*Mazdoor_constant)/D;
+
+	       document.getElementById('result').textContent = 'Required number of painter is ' + Math.ceil(m);
+	      }else if(aaa=='White washing with lime 3 coats on new surface'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.02;
+        	var Mazdoor_constant = 0.01;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+
+	       document.getElementById('result').textContent = 'Required number of washer is ' + Math.ceil(m) + ' and mazdoor is '+Math.ceil(l);
+	      }else if(aaa=='Two coats of colour wash over an undercoat of white wash on new work'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.03;
+        	var Mazdoor_constant = 0.01;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+
+	       document.getElementById('result').textContent = 'Required number of washer is ' + Math.ceil(m) + ' and mazdoor is '+Math.ceil(l);
+	      }else if(aaa=='Distempering with dry distemper 3 coats on new surface including a priming coat of whiting'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.08;
+        	var Mazdoor_constant = 0.04;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+
+	       document.getElementById('result').textContent = 'Required number of painter is ' + Math.ceil(m) + ' and mazdoor is '+Math.ceil(l);
+	      }else if(aaa=='Cement based paint 2 or more coats on new work (for each coat)'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.1;
+        	var Mazdoor_constant = 0.01;
+        	var painter=0.15;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+        	var pain=(W*painter)/D;
+
+	       document.getElementById('result').textContent = 'Required number of bhisti is ' + Math.ceil(m) +' , painter is '+ Math.ceil(pain) +' and mazdoor is '+Math.ceil(l);
+	      	
+	      }else if(aaa=='Cement wash one coat on new work'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.02;
+        //	var Mazdoor_constant = 0.62;
+        	var m= (W*Mate_constant)/D;
+        //	var l = (W*Mazdoor_constant)/D;
+
+	       document.getElementById('result').textContent = 'Required number of washer is ' + Math.ceil(m);
+	      }else if(aaa=='10cm thick (average ) mud PHUSKA of clay mixed with BHUSKA at 8kg per cubic metres of clay on roofs laid to slope and consolidated'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.01;
+        	var Mazdoor_constant = 0.2;
+        	var mason=0.01;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+        	var ma=(W*mason)/D;
+
+	       document.getElementById('result').textContent = 'Required number of bhisti is ' + Math.ceil(m) +' , mason is '+Math.ceil(ma)+ ' and mazdoor is '+Math.ceil(l);
+	      }else if(aaa=='10mm thick mud plaster and GOBRI leeping with mud GOBRI mortar over mud PHUSKA'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.01;
+        //	var Mazdoor_constant = 0.62;
+        	var m= (W*Mate_constant)/D;
+        //	var l = (W*Mazdoor_constant)/D;
+
+	       document.getElementById('result').textContent = 'Required number of mazdoor is ' + Math.ceil(m);
+	      }else if(aaa=='One layer of tile brick laid over GOBRI leeping and grounted with cement mortar icluding mixing and finishing neat'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.1;
+        	var Mazdoor_constant = 0.15;
+        	var mason=0.12;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+        	var ma=(W*mason)/D;
+
+	       document.getElementById('result').textContent = 'Required number of bhisti is ' + Math.ceil(m) +' , mason is '+Math.ceil(ma)+ ' and mazdoor is '+Math.ceil(l);
+	      }else if(aaa=='Lime concrete terracing comprising of lime, surkhi, brick ballast - 20mm and downaverage consolidated thickness 10cm, finished with gur and belgiri treatment complete:'){
+	      	var product = num1 * num2;
+	      	var Mate_constant = 0.05;
+        	var Mazdoor_constant = 0.3;
+        	var mason=0.1;
+        	var m= (W*Mate_constant)/D;
+        	var l = (W*Mazdoor_constant)/D;
+        	var ma=(W*mason)/D;
+        	var mazdoor2=0.07;
+        	var bhisti2=0.1;
+        	var ma2=(W*mazdoor2)/D;
+        	var bhisti=(W*bhisti2)/D;
+
+	       document.getElementById('result').textContent = 'For LAYING: Required number of bhisti is ' + Math.ceil(m) +' , mason is '+Math.ceil(ma)+ ' and mazdoor is '+Math.ceil(l)+'/n For beating and finishing : Required number of mazdoor is '+Math.ceil(ma2)+'and bhisti is '+Math.ceil(bhisti);
+	      }else{
+	      	document.getElementById('result').textContent = 'Select Appropriate options ';
+	      }
+	    }
+    </script>
+	<br>
+	<br>
+	<br>
+	</div>
+	</div>
+	<div id="bgcolor" id="is7272">
+		<object type="application/pdf" data="7272-1.pdf" width="100%" height="100%"></object>
+	</div>
+	<!--News-->
+	<div id="bgcolor" id="news" style="color:white">
+		<h1><b>News and Technologies</b></h1>
+		<section><a href="#" style="text-decoration:none;"><img src="20220320_134547 (1).jpg" width="150" height="100"><h2>Will be Updated soon...</h2></a></section>
+		<section><a href="#" style="text-decoration:none;"><img src="20220320_134547 (1).jpg" width="150" height="100"><h2>Will be Updated soon...</h2></a></section>
+		<section><a href="#" style="text-decoration:none;"><img src="20220320_134547 (1).jpg" width="150" height="100"><h2>Will be Updated soon...</h2></a></section>
+		<h2><a href="#" style="text-decoration:none;">More news...</a></h2>
+	</div>
+	<!--Login-->
+	<div id="bgcolor" style="color:white;">
+	<section id="login">
+		<form>
+			<fieldset>
+				<legend>&nbsp <h2>LOGIN</h2> &nbsp</legend>
+				<br>
+				<label for="USERNAME">USERNAME &nbsp</label>
+				<input type="text" required placeholder="USERNAME"><br><br>
+				<label for="Password" >PASSWORD</label>
+				<input type="text" name="PASSWORD" required placeholder="PASSWORD"><br><br><br>
+				<input type="submit" value="Login"><br>
+				<br>
+				<a href="#signup">Not Registered Yet? SIGNUP Now! </a>
+			</fieldset>
+		</form>
+	</section>
+	<br>
+	<br>
+	<!--Media-->
+	<h1 id="media" style="background-color:dimgrey;"> Media</h1>
+	<ul style="background-color:dimgrey;">
+		<li><a href="https://twitter.com/home" target="_blank" style="text-decoration: none;"><img src="download.png" width="60" height="50"></a></li>
+		<li><a href="https://www.instagram.com/" target="_blank" style="text-decoration: none;"><img src="social-instagram-icon-2048x2048-xuel0xhc.png" width="50" height="50"></a></li>
+		<li><a href="https://www.facebook.com/" target="_blank" style="text-decoration: none;"><img src="XGehZ_9v_400x400.jpg" width="50" height="50"></li>
+		<li><a href="https://www.youtube.com/" target="_blank" style="text-decoration: none;"><img src="channels4_profile.jpg" width="50" height="50"></a></li>
+	</ul>
+	<h1 style="background-color: dimgrey;" id="contactus"><br>CONTACT US</h1>
+	<p style="background-color: dimgrey;"><br>Email : ulaula@gmail.com<br>Contact number : +91XXXXXXXXXX , +363 XXXX XXX <br> Address : room number 309 , Kapili Hostel<br>IIT Guwahati,781039<br><br>
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114608.84031858368!2d91.56601957803738!3d26.14698521529174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a5b8e4496ac57%3A0x734587e7496393a1!2sIIT%20Guwahati%20Main%20Gate!5e0!3m2!1sen!2sin!4v1688109770413!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><br><br></p>
+	<!--Singup-->
+	<section id="signup" style="background-color: dimgrey;">
+		<form>
+			<fieldset>
+			<legend>&nbsp <h2>SIGN UP</h2> &nbsp</legend>
+			<br>
+			<label for="Full Name">FULLNAME &nbsp</label>
+			<input type="text" required placeholder="FULL NAME"><br><br>
+			GENDER &nbsp
+            <input type="radio" name="gender">FEMALE &nbsp
+            <input type="radio" name="gender">MALE &nbsp
+            <input type="radio" name="gender">OTHERS<br><br>
+            DATE OF BIRTH &nbsp
+            <select name="date">
+            	<option>1</option>
+            	<option>2</option>
+            	<option>3</option>
+            	<option>4</option>
+            	<option>5</option>
+            	<option>6</option>
+            	<option>7</option>
+            	<option>8</option>
+            	<option>9</option>
+            	<option>10</option>
+            	<option>11</option>
+            	<option>12</option>
+            	<option>13</option>
+            	<option>14</option>
+            	<option>15</option>
+            	<option>16</option>
+            	<option>17</option>
+            	<option>18</option>
+            	<option>19</option>
+            	<option>20</option>
+            	<option>21</option>
+            	<option>22</option>
+            	<option>23</option>
+            	<option>24</option>
+            	<option>25</option>
+            	<option>26</option>
+            	<option>27</option>
+            	<option>28</option>
+            	<option>29</option>
+            	<option>30</option>
+            	<option>31</option>
+            </select>
+            <select name="date">
+            	<option>JANUARY</option>
+            	<option>FEBRUARY</option>
+            	<option>MARCH</option>
+            	<option>APRIL</option>
+            	<option>MAY</option>
+            	<option>JUNE</option>
+            	<option>JULY</option>
+            	<option>AUGUST</option>
+            	<option>SEPTEMBER</option>
+            	<option>OCTOBER</option>
+            	<option>NOVEMBER</option>
+            	<option>DECEMBER</option>
+            </select>
+            <input type="text" name="date" placeholder="YEAR"><br><br>
+			<label for="email">EMAIL</label>
+			<input type="email" placeholder="EMAIL"><br><br>
+			<label for="name" > USERNAME </label>
+			<input type="text" name="USERNAME" required placeholder="USERNAME"><br><br>
+			<label for="Password" >PASSWORD</label>
+			<input type="text" name="PASSWORD" required placeholder="PASSWORD"><br><br><br>
+			<input type="checkbox" name="tc" value="terms">ACCEPT TERMS &CONDITIONS<br>
+			<input type="checkbox" name="mailid" value="emailalerts">GET EMAIL ALERTS<br><br>
+			<input type="submit" value="Sign up"><br>
+		</fieldset>
+		</form>
+	</section>
+	</div>
+	<div id="bgcolor">
+		<a href="#"> 
+	</div>
+</body>
+</html>
